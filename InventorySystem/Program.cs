@@ -14,7 +14,7 @@ namespace InventorySystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(CompanyForm.GetInstance());
+            Application.Run(MainForm.GetInstance());
         }
     }
 }

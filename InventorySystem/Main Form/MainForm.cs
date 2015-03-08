@@ -12,22 +12,22 @@ using Telerik.WinControls;
 
 namespace InventorySystem
 {
-    public partial class CompanyForm : Telerik.WinControls.UI.RadForm
+    public partial class MainForm : Telerik.WinControls.UI.RadForm
     {
-        static CompanyForm form;
+        static MainForm form;
         InventorySystemEntities _context;
-        private CompanyForm()
+        private MainForm()
         {
             InitializeComponent();
         }
 
-        public static CompanyForm GetInstance()
+        public static MainForm GetInstance()
         {
             if (form != null)
             {
                 return form;
             }
-            form = new CompanyForm();
+            form = new MainForm();
             return form;
 
         }

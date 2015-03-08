@@ -129,11 +129,11 @@
     <Compile Include="Company.cs">
       <DependentUpon>InventoryDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="CompanyForm.cs">
+    <Compile Include="Main Form\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompanyForm.Designer.cs">
-      <DependentUpon>CompanyForm.cs</DependentUpon>
+    <Compile Include="Main Form\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer.cs">
       <DependentUpon>InventoryDb.tt</DependentUpon>
@@ -198,8 +198,8 @@
     <EmbeddedResource Include="AddCompanyForm.resx">
       <DependentUpon>AddCompanyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompanyForm.resx">
-      <DependentUpon>CompanyForm.cs</DependentUpon>
+    <EmbeddedResource Include="Main Form\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
