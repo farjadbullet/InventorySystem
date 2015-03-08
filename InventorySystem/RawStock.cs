@@ -14,8 +14,8 @@ namespace InventorySystem
     
     public partial class RawStock
     {
-        public System.Guid Id { get; set; }
-        public Nullable<System.Guid> ItemId { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> ItemId { get; set; }
         public Nullable<double> Quantity { get; set; }
     
         public virtual Item Item { get; set; }

@@ -14,8 +14,8 @@ namespace InventorySystem
     
     public partial class ImportExpense
     {
-        public System.Guid Id { get; set; }
-        public Nullable<System.Guid> ImportId { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> ImportId { get; set; }
         public string Expense { get; set; }
         public Nullable<decimal> Price { get; set; }
     

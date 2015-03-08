@@ -14,9 +14,9 @@ namespace InventorySystem
     
     public partial class ProductionDetail
     {
-        public System.Guid Id { get; set; }
-        public Nullable<System.Guid> ImportId { get; set; }
-        public Nullable<System.Guid> ProducerId { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> ImportId { get; set; }
+        public Nullable<int> ProducerId { get; set; }
         public Nullable<double> Quantity { get; set; }
         public Nullable<decimal> Cost { get; set; }
     

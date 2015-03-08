@@ -14,9 +14,9 @@ namespace InventorySystem
     
     public partial class OrderDetail
     {
-        public System.Guid Id { get; set; }
-        public Nullable<System.Guid> OrderId { get; set; }
-        public Nullable<System.Guid> ItemId { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> OrderId { get; set; }
+        public Nullable<int> ItemId { get; set; }
         public Nullable<double> Quantity { get; set; }
         public string Size { get; set; }
         public Nullable<int> Weight { get; set; }

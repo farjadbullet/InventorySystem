@@ -56,7 +56,6 @@ namespace InventorySystem
             }
             Company company = new Company
             {
-                Id = Guid.NewGuid(),
                 CompanyName = this.companyNameTextBox.Text,
                 AccountTitle = this.accountTitleTextBox.Text,
                 Address = this.addressTextBox.Text,

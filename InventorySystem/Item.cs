@@ -22,7 +22,7 @@ namespace InventorySystem
             this.RawStocks = new ObservableListSource<RawStock>();
         }
     
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
         public string ItemCode { get; set; }
         public string ItemName { get; set; }
         public string Description { get; set; }

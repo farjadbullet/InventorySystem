@@ -21,9 +21,9 @@ namespace InventorySystem
             this.ProductionDetails = new ObservableListSource<ProductionDetail>();
         }
     
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
         public Nullable<System.Guid> ContainerId { get; set; }
-        public System.Guid SupplierId { get; set; }
+        public int SupplierId { get; set; }
         public string OrderDate { get; set; }
         public string ArrivalDate { get; set; }
         public string Status { get; set; }

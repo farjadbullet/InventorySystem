@@ -15,8 +15,8 @@
         <EntityTypeShape EntityType="InventorySystemModel.OrderDetail" Width="1.5" PointX="6" PointY="5.75" />
         <EntityTypeShape EntityType="InventorySystemModel.Producer" Width="1.5" PointX="3.75" PointY="17" />
         <EntityTypeShape EntityType="InventorySystemModel.ProductionDetail" Width="1.5" PointX="6" PointY="13.375" />
-        <EntityTypeShape EntityType="InventorySystemModel.ProductStock" Width="1.5" PointX="3" PointY="4.875" />
-        <EntityTypeShape EntityType="InventorySystemModel.RawStock" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="InventorySystemModel.ProductStock" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="InventorySystemModel.RawStock" Width="1.5" PointX="3" PointY="4.875" />
         <EntityTypeShape EntityType="InventorySystemModel.Supplier" Width="1.5" PointX="1.5" PointY="21.875" />
         <AssociationConnector Association="InventorySystemModel.FK_Customer_Company" />
         <AssociationConnector Association="InventorySystemModel.FK_Producer_Company" />

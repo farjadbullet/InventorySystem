@@ -171,6 +171,7 @@
     <Compile Include="Item.cs">
       <DependentUpon>InventoryDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="MyAutoCompleteEditor.cs" />
     <Compile Include="ObservableListSource.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>InventoryDb.tt</DependentUpon>

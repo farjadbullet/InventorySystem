@@ -19,9 +19,9 @@ namespace InventorySystem
             this.ImportItems = new ObservableListSource<ImportItem>();
         }
     
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
         public string SupplierName { get; set; }
-        public Nullable<System.Guid> CompanyId { get; set; }
+        public Nullable<int> CompanyId { get; set; }
         public string Contact { get; set; }
         public string Contact2 { get; set; }
     

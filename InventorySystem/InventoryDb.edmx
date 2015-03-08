@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CompanyName" Type="varchar" MaxLength="50" />
           <Property Name="AccountTitle" Type="varchar" MaxLength="100" />
           <Property Name="OpeningBalance" Type="money" />
@@ -21,9 +21,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="CompanyId" Type="int" />
           <Property Name="Contact" Type="varchar" MaxLength="20" />
           <Property Name="Contact2" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -31,8 +31,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ImportId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImportId" Type="int" />
           <Property Name="Expense" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="money" />
         </EntityType>
@@ -40,9 +40,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ContainerId" Type="uniqueidentifier" />
-          <Property Name="SupplierId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SupplierId" Type="int" Nullable="false" />
           <Property Name="OrderDate" Type="varchar" MaxLength="20" />
           <Property Name="ArrivalDate" Type="varchar" MaxLength="20" />
           <Property Name="Status" Type="varchar" MaxLength="20" />
@@ -51,9 +51,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ImportId" Type="uniqueidentifier" />
-          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImportId" Type="int" />
+          <Property Name="ItemId" Type="int" />
           <Property Name="Weight" Type="int" />
           <Property Name="Size" Type="varchar" MaxLength="20" />
           <Property Name="Quantity" Type="float" />
@@ -63,7 +63,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ItemCode" Type="nvarchar" MaxLength="50" />
           <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="varchar" MaxLength="255" />
@@ -74,8 +74,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CustomerId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
           <Property Name="OrderDate" Type="varchar" MaxLength="20" />
           <Property Name="DeliveryDate" Type="varchar" MaxLength="20" />
           <Property Name="Delivered" Type="bit" />
@@ -85,9 +85,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="OrderId" Type="uniqueidentifier" />
-          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="ItemId" Type="int" />
           <Property Name="Quantity" Type="float" />
           <Property Name="Size" Type="nchar" MaxLength="20" />
           <Property Name="Weight" Type="int" />
@@ -96,9 +96,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Producer" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="CompanyId" Type="int" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
           <Property Name="Contact" Type="nvarchar" MaxLength="20" />
           <Property Name="Contact2" Type="nvarchar" MaxLength="20" />
@@ -107,9 +107,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ImportId" Type="uniqueidentifier" />
-          <Property Name="ProducerId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImportId" Type="int" />
+          <Property Name="ProducerId" Type="int" />
           <Property Name="Quantity" Type="float" />
           <Property Name="Cost" Type="money" />
         </EntityType>
@@ -117,25 +117,25 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" />
           <Property Name="Quantity" Type="float" />
         </EntityType>
         <EntityType Name="RawStock">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemId" Type="int" />
           <Property Name="Quantity" Type="float" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SupplierName" Type="varchar" MaxLength="50" />
-          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="CompanyId" Type="int" />
           <Property Name="Contact" Type="varchar" MaxLength="20" />
           <Property Name="Contact2" Type="varchar" MaxLength="20" />
         </EntityType>
@@ -457,7 +457,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="AccountTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="OpeningBalance" Type="Decimal" Precision="19" Scale="4" />
@@ -472,9 +472,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="CompanyId" Type="Int32" />
           <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Contact2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Company" Relationship="InventorySystemModel.FK_Customer_Company" FromRole="Customer" ToRole="Company" />
@@ -484,8 +484,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ImportId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImportId" Type="Int32" />
           <Property Name="Expense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="ImportItem" Relationship="InventorySystemModel.FK_ImportExpense_ImportItem" FromRole="ImportExpense" ToRole="ImportItem" />
@@ -494,9 +494,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ContainerId" Type="Guid" />
-          <Property Name="SupplierId" Type="Guid" Nullable="false" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="OrderDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ArrivalDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -509,9 +509,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ImportId" Type="Guid" />
-          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImportId" Type="Int32" />
+          <Property Name="ItemId" Type="Int32" />
           <Property Name="Weight" Type="Int32" />
           <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Quantity" Type="Double" />
@@ -523,7 +523,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -538,8 +538,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="CustomerId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
           <Property Name="OrderDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="DeliveryDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Delivered" Type="Boolean" />
@@ -551,9 +551,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="OrderId" Type="Guid" />
-          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="ItemId" Type="Int32" />
           <Property Name="Quantity" Type="Double" />
           <Property Name="Size" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="Weight" Type="Int32" />
@@ -564,9 +564,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Producer1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="CompanyId" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Contact2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -577,9 +577,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ImportId" Type="Guid" />
-          <Property Name="ProducerId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImportId" Type="Int32" />
+          <Property Name="ProducerId" Type="Int32" />
           <Property Name="Quantity" Type="Double" />
           <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="ImportItem" Relationship="InventorySystemModel.FK_ProductionDetail_ImportItem" FromRole="ProductionDetail" ToRole="ImportItem" />
@@ -589,8 +589,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" />
           <Property Name="Quantity" Type="Double" />
           <NavigationProperty Name="Item" Relationship="InventorySystemModel.FK_ProductStock_Item" FromRole="ProductStock" ToRole="Item" />
         </EntityType>
@@ -598,8 +598,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemId" Type="Int32" />
           <Property Name="Quantity" Type="Double" />
           <NavigationProperty Name="Item" Relationship="InventorySystemModel.FK_Stock_Item" FromRole="RawStock" ToRole="Item" />
         </EntityType>
@@ -607,9 +607,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="CompanyId" Type="Int32" />
           <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Contact2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Company" Relationship="InventorySystemModel.FK_Supplier_Company" FromRole="Supplier" ToRole="Company" />
@@ -783,7 +783,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

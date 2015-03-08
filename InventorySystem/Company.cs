@@ -21,7 +21,7 @@ namespace InventorySystem
             this.Suppliers = new ObservableListSource<Supplier>();
         }
     
-        public System.Guid Id { get; set; }
+        public int Id { get; set; }
         public string CompanyName { get; set; }
         public string AccountTitle { get; set; }
         public Nullable<decimal> OpeningBalance { get; set; }
