@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a187e44ad4a9455d8eba20878e6a7a11" Name="Diagram1">
+        <EntityTypeShape EntityType="InventorySystemModel.Company" Width="1.5" PointX="1.5" PointY="17.125" />
+        <EntityTypeShape EntityType="InventorySystemModel.Customer" Width="1.5" PointX="1.5" PointY="1.375" />
+        <EntityTypeShape EntityType="InventorySystemModel.ImportExpense" Width="1.5" PointX="3" PointY="25" />
+        <EntityTypeShape EntityType="InventorySystemModel.ImportItem" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="InventorySystemModel.ImportItemDetail" Width="1.5" PointX="3" PointY="7.625" />
+        <EntityTypeShape EntityType="InventorySystemModel.Item" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="InventorySystemModel.Order" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="InventorySystemModel.OrderDetail" Width="1.5" PointX="6" PointY="5.75" />
+        <EntityTypeShape EntityType="InventorySystemModel.Producer" Width="1.5" PointX="3.75" PointY="17" />
+        <EntityTypeShape EntityType="InventorySystemModel.ProductionDetail" Width="1.5" PointX="6" PointY="13.375" />
+        <EntityTypeShape EntityType="InventorySystemModel.ProductStock" Width="1.5" PointX="3" PointY="4.875" />
+        <EntityTypeShape EntityType="InventorySystemModel.RawStock" Width="1.5" PointX="3" PointY="14.25" />
+        <EntityTypeShape EntityType="InventorySystemModel.Supplier" Width="1.5" PointX="1.5" PointY="21.875" />
+        <AssociationConnector Association="InventorySystemModel.FK_Customer_Company" />
+        <AssociationConnector Association="InventorySystemModel.FK_Producer_Company" />
+        <AssociationConnector Association="InventorySystemModel.FK_Supplier_Company" />
+        <AssociationConnector Association="InventorySystemModel.FK_Order_Customer" />
+        <AssociationConnector Association="InventorySystemModel.FK_ImportExpense_ImportItem" />
+        <AssociationConnector Association="InventorySystemModel.FK_ImportItem_Supplier" />
+        <AssociationConnector Association="InventorySystemModel.FK_ImportItemDetails_ImportItem" />
+        <AssociationConnector Association="InventorySystemModel.FK_ProductionDetail_ImportItem" />
+        <AssociationConnector Association="InventorySystemModel.FK_ImportItemDetails_Item" />
+        <AssociationConnector Association="InventorySystemModel.FK_OrderDetails_Item" />
+        <AssociationConnector Association="InventorySystemModel.FK_ProductStock_Item" />
+        <AssociationConnector Association="InventorySystemModel.FK_Stock_Item" />
+        <AssociationConnector Association="InventorySystemModel.FK_OrderDetails_Order" />
+        <AssociationConnector Association="InventorySystemModel.FK_ProductionDetail_Producer" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

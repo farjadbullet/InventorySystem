@@ -1,0 +1,962 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InventorySystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+          <Property Name="AccountTitle" Type="varchar" MaxLength="100" />
+          <Property Name="OpeningBalance" Type="money" />
+          <Property Name="CurrentBalance" Type="money" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+          <Property Name="Contact2" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ImportExpense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImportId" Type="uniqueidentifier" />
+          <Property Name="Expense" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="money" />
+        </EntityType>
+        <EntityType Name="ImportItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContainerId" Type="uniqueidentifier" />
+          <Property Name="SupplierId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderDate" Type="varchar" MaxLength="20" />
+          <Property Name="ArrivalDate" Type="varchar" MaxLength="20" />
+          <Property Name="Status" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ImportItemDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImportId" Type="uniqueidentifier" />
+          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Size" Type="varchar" MaxLength="20" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Price" Type="money" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="255" />
+          <Property Name="Class" Type="varchar" MaxLength="255" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerId" Type="uniqueidentifier" />
+          <Property Name="OrderDate" Type="varchar" MaxLength="20" />
+          <Property Name="DeliveryDate" Type="varchar" MaxLength="20" />
+          <Property Name="Delivered" Type="bit" />
+          <Property Name="Approved" Type="bit" />
+        </EntityType>
+        <EntityType Name="OrderDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OrderId" Type="uniqueidentifier" />
+          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Size" Type="nchar" MaxLength="20" />
+          <Property Name="Weight" Type="int" />
+        </EntityType>
+        <EntityType Name="Producer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Producer" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="20" />
+          <Property Name="Contact2" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ProductionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImportId" Type="uniqueidentifier" />
+          <Property Name="ProducerId" Type="uniqueidentifier" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Cost" Type="money" />
+        </EntityType>
+        <EntityType Name="ProductStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Quantity" Type="float" />
+        </EntityType>
+        <EntityType Name="RawStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ItemId" Type="uniqueidentifier" />
+          <Property Name="Quantity" Type="float" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyId" Type="uniqueidentifier" />
+          <Property Name="Contact" Type="varchar" MaxLength="20" />
+          <Property Name="Contact2" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_Customer_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportExpense_ImportItem">
+          <End Role="ImportItem" Type="Self.ImportItem" Multiplicity="0..1" />
+          <End Role="ImportExpense" Type="Self.ImportExpense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportExpense">
+              <PropertyRef Name="ImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportItem_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1" />
+          <End Role="ImportItem" Type="Self.ImportItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportItem">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportItemDetails_ImportItem">
+          <End Role="ImportItem" Type="Self.ImportItem" Multiplicity="0..1" />
+          <End Role="ImportItemDetails" Type="Self.ImportItemDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportItemDetails">
+              <PropertyRef Name="ImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportItemDetails_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="ImportItemDetails" Type="Self.ImportItemDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportItemDetails">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="0..1" />
+          <End Role="OrderDetails" Type="Self.OrderDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetails">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producer_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Producer" Type="Self.Producer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionDetail_ImportItem">
+          <End Role="ImportItem" Type="Self.ImportItem" Multiplicity="0..1" />
+          <End Role="ProductionDetail" Type="Self.ProductionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionDetail">
+              <PropertyRef Name="ImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionDetail_Producer">
+          <End Role="Producer" Type="Self.Producer" Multiplicity="0..1" />
+          <End Role="ProductionDetail" Type="Self.ProductionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionDetail">
+              <PropertyRef Name="ProducerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductStock_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="ProductStock" Type="Self.ProductStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductStock">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Item">
+          <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+          <End Role="RawStock" Type="Self.RawStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RawStock">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Company">
+          <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InventorySystemModelStoreContainer">
+          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportExpense" EntityType="Self.ImportExpense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportItem" EntityType="Self.ImportItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportItemDetails" EntityType="Self.ImportItemDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDetails" EntityType="Self.OrderDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producer" EntityType="Self.Producer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductionDetail" EntityType="Self.ProductionDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductStock" EntityType="Self.ProductStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RawStock" EntityType="Self.RawStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_Company" Association="Self.FK_Customer_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportExpense_ImportItem" Association="Self.FK_ImportExpense_ImportItem">
+            <End Role="ImportItem" EntitySet="ImportItem" />
+            <End Role="ImportExpense" EntitySet="ImportExpense" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportItem_Supplier" Association="Self.FK_ImportItem_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="ImportItem" EntitySet="ImportItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportItemDetails_ImportItem" Association="Self.FK_ImportItemDetails_ImportItem">
+            <End Role="ImportItem" EntitySet="ImportItem" />
+            <End Role="ImportItemDetails" EntitySet="ImportItemDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportItemDetails_Item" Association="Self.FK_ImportItemDetails_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ImportItemDetails" EntitySet="ImportItemDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Item" Association="Self.FK_OrderDetails_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Order" Association="Self.FK_OrderDetails_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producer_Company" Association="Self.FK_Producer_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Producer" EntitySet="Producer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionDetail_ImportItem" Association="Self.FK_ProductionDetail_ImportItem">
+            <End Role="ImportItem" EntitySet="ImportItem" />
+            <End Role="ProductionDetail" EntitySet="ProductionDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionDetail_Producer" Association="Self.FK_ProductionDetail_Producer">
+            <End Role="Producer" EntitySet="Producer" />
+            <End Role="ProductionDetail" EntitySet="ProductionDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductStock_Item" Association="Self.FK_ProductStock_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="ProductStock" EntitySet="ProductStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Item" Association="Self.FK_Stock_Item">
+            <End Role="Item" EntitySet="Item" />
+            <End Role="RawStock" EntitySet="RawStock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Company" Association="Self.FK_Supplier_Company">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="Supplier" EntitySet="Supplier" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InventorySystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="InventorySystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Companies" EntityType="InventorySystemModel.Company" />
+          <EntitySet Name="Customers" EntityType="InventorySystemModel.Customer" />
+          <EntitySet Name="ImportExpenses" EntityType="InventorySystemModel.ImportExpense" />
+          <EntitySet Name="ImportItems" EntityType="InventorySystemModel.ImportItem" />
+          <EntitySet Name="ImportItemDetails" EntityType="InventorySystemModel.ImportItemDetail" />
+          <EntitySet Name="Items" EntityType="InventorySystemModel.Item" />
+          <EntitySet Name="Orders" EntityType="InventorySystemModel.Order" />
+          <EntitySet Name="OrderDetails" EntityType="InventorySystemModel.OrderDetail" />
+          <EntitySet Name="Producers" EntityType="InventorySystemModel.Producer" />
+          <EntitySet Name="ProductionDetails" EntityType="InventorySystemModel.ProductionDetail" />
+          <EntitySet Name="ProductStocks" EntityType="InventorySystemModel.ProductStock" />
+          <EntitySet Name="RawStocks" EntityType="InventorySystemModel.RawStock" />
+          <EntitySet Name="Suppliers" EntityType="InventorySystemModel.Supplier" />
+          <AssociationSet Name="FK_Customer_Company" Association="InventorySystemModel.FK_Customer_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Producer_Company" Association="InventorySystemModel.FK_Producer_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Producer" EntitySet="Producers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Supplier_Company" Association="InventorySystemModel.FK_Supplier_Company">
+            <End Role="Company" EntitySet="Companies" />
+            <End Role="Supplier" EntitySet="Suppliers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customer" Association="InventorySystemModel.FK_Order_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportExpense_ImportItem" Association="InventorySystemModel.FK_ImportExpense_ImportItem">
+            <End Role="ImportItem" EntitySet="ImportItems" />
+            <End Role="ImportExpense" EntitySet="ImportExpenses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportItem_Supplier" Association="InventorySystemModel.FK_ImportItem_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="ImportItem" EntitySet="ImportItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportItemDetails_ImportItem" Association="InventorySystemModel.FK_ImportItemDetails_ImportItem">
+            <End Role="ImportItem" EntitySet="ImportItems" />
+            <End Role="ImportItemDetail" EntitySet="ImportItemDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionDetail_ImportItem" Association="InventorySystemModel.FK_ProductionDetail_ImportItem">
+            <End Role="ImportItem" EntitySet="ImportItems" />
+            <End Role="ProductionDetail" EntitySet="ProductionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImportItemDetails_Item" Association="InventorySystemModel.FK_ImportItemDetails_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ImportItemDetail" EntitySet="ImportItemDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Item" Association="InventorySystemModel.FK_OrderDetails_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductStock_Item" Association="InventorySystemModel.FK_ProductStock_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="ProductStock" EntitySet="ProductStocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_Item" Association="InventorySystemModel.FK_Stock_Item">
+            <End Role="Item" EntitySet="Items" />
+            <End Role="RawStock" EntitySet="RawStocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderDetails_Order" Association="InventorySystemModel.FK_OrderDetails_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderDetail" EntitySet="OrderDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductionDetail_Producer" Association="InventorySystemModel.FK_ProductionDetail_Producer">
+            <End Role="Producer" EntitySet="Producers" />
+            <End Role="ProductionDetail" EntitySet="ProductionDetails" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OpeningBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CurrentBalance" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Bank" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customers" Relationship="InventorySystemModel.FK_Customer_Company" FromRole="Company" ToRole="Customer" />
+          <NavigationProperty Name="Producers" Relationship="InventorySystemModel.FK_Producer_Company" FromRole="Company" ToRole="Producer" />
+          <NavigationProperty Name="Suppliers" Relationship="InventorySystemModel.FK_Supplier_Company" FromRole="Company" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="InventorySystemModel.FK_Customer_Company" FromRole="Customer" ToRole="Company" />
+          <NavigationProperty Name="Orders" Relationship="InventorySystemModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="ImportExpense">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ImportId" Type="Guid" />
+          <Property Name="Expense" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="ImportItem" Relationship="InventorySystemModel.FK_ImportExpense_ImportItem" FromRole="ImportExpense" ToRole="ImportItem" />
+        </EntityType>
+        <EntityType Name="ImportItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ContainerId" Type="Guid" />
+          <Property Name="SupplierId" Type="Guid" Nullable="false" />
+          <Property Name="OrderDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ArrivalDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ImportExpenses" Relationship="InventorySystemModel.FK_ImportExpense_ImportItem" FromRole="ImportItem" ToRole="ImportExpense" />
+          <NavigationProperty Name="Supplier" Relationship="InventorySystemModel.FK_ImportItem_Supplier" FromRole="ImportItem" ToRole="Supplier" />
+          <NavigationProperty Name="ImportItemDetails" Relationship="InventorySystemModel.FK_ImportItemDetails_ImportItem" FromRole="ImportItem" ToRole="ImportItemDetail" />
+          <NavigationProperty Name="ProductionDetails" Relationship="InventorySystemModel.FK_ProductionDetail_ImportItem" FromRole="ImportItem" ToRole="ProductionDetail" />
+        </EntityType>
+        <EntityType Name="ImportItemDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ImportId" Type="Guid" />
+          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Size" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="ImportItem" Relationship="InventorySystemModel.FK_ImportItemDetails_ImportItem" FromRole="ImportItemDetail" ToRole="ImportItem" />
+          <NavigationProperty Name="Item" Relationship="InventorySystemModel.FK_ImportItemDetails_Item" FromRole="ImportItemDetail" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Class" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="ImportItemDetails" Relationship="InventorySystemModel.FK_ImportItemDetails_Item" FromRole="Item" ToRole="ImportItemDetail" />
+          <NavigationProperty Name="OrderDetails" Relationship="InventorySystemModel.FK_OrderDetails_Item" FromRole="Item" ToRole="OrderDetail" />
+          <NavigationProperty Name="ProductStocks" Relationship="InventorySystemModel.FK_ProductStock_Item" FromRole="Item" ToRole="ProductStock" />
+          <NavigationProperty Name="RawStocks" Relationship="InventorySystemModel.FK_Stock_Item" FromRole="Item" ToRole="RawStock" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="CustomerId" Type="Guid" />
+          <Property Name="OrderDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Delivered" Type="Boolean" />
+          <Property Name="Approved" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="InventorySystemModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="OrderDetails" Relationship="InventorySystemModel.FK_OrderDetails_Order" FromRole="Order" ToRole="OrderDetail" />
+        </EntityType>
+        <EntityType Name="OrderDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="OrderId" Type="Guid" />
+          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Size" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Weight" Type="Int32" />
+          <NavigationProperty Name="Item" Relationship="InventorySystemModel.FK_OrderDetails_Item" FromRole="OrderDetail" ToRole="Item" />
+          <NavigationProperty Name="Order" Relationship="InventorySystemModel.FK_OrderDetails_Order" FromRole="OrderDetail" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Producer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Producer1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Contact2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Company" Relationship="InventorySystemModel.FK_Producer_Company" FromRole="Producer" ToRole="Company" />
+          <NavigationProperty Name="ProductionDetails" Relationship="InventorySystemModel.FK_ProductionDetail_Producer" FromRole="Producer" ToRole="ProductionDetail" />
+        </EntityType>
+        <EntityType Name="ProductionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ImportId" Type="Guid" />
+          <Property Name="ProducerId" Type="Guid" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="ImportItem" Relationship="InventorySystemModel.FK_ProductionDetail_ImportItem" FromRole="ProductionDetail" ToRole="ImportItem" />
+          <NavigationProperty Name="Producer" Relationship="InventorySystemModel.FK_ProductionDetail_Producer" FromRole="ProductionDetail" ToRole="Producer" />
+        </EntityType>
+        <EntityType Name="ProductStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Quantity" Type="Double" />
+          <NavigationProperty Name="Item" Relationship="InventorySystemModel.FK_ProductStock_Item" FromRole="ProductStock" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="RawStock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ItemId" Type="Guid" />
+          <Property Name="Quantity" Type="Double" />
+          <NavigationProperty Name="Item" Relationship="InventorySystemModel.FK_Stock_Item" FromRole="RawStock" ToRole="Item" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyId" Type="Guid" />
+          <Property Name="Contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Contact2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Company" Relationship="InventorySystemModel.FK_Supplier_Company" FromRole="Supplier" ToRole="Company" />
+          <NavigationProperty Name="ImportItems" Relationship="InventorySystemModel.FK_ImportItem_Supplier" FromRole="Supplier" ToRole="ImportItem" />
+        </EntityType>
+        <Association Name="FK_Customer_Company">
+          <End Type="InventorySystemModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Producer_Company">
+          <End Type="InventorySystemModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.Producer" Role="Producer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Producer">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Supplier_Company">
+          <End Type="InventorySystemModel.Company" Role="Company" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.Supplier" Role="Supplier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Company">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Supplier">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Customer">
+          <End Type="InventorySystemModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportExpense_ImportItem">
+          <End Type="InventorySystemModel.ImportItem" Role="ImportItem" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.ImportExpense" Role="ImportExpense" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportExpense">
+              <PropertyRef Name="ImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportItem_Supplier">
+          <End Type="InventorySystemModel.Supplier" Role="Supplier" Multiplicity="1" />
+          <End Type="InventorySystemModel.ImportItem" Role="ImportItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportItem">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportItemDetails_ImportItem">
+          <End Type="InventorySystemModel.ImportItem" Role="ImportItem" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.ImportItemDetail" Role="ImportItemDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportItemDetail">
+              <PropertyRef Name="ImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionDetail_ImportItem">
+          <End Type="InventorySystemModel.ImportItem" Role="ImportItem" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.ProductionDetail" Role="ProductionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImportItem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionDetail">
+              <PropertyRef Name="ImportId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImportItemDetails_Item">
+          <End Type="InventorySystemModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.ImportItemDetail" Role="ImportItemDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportItemDetail">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Item">
+          <End Type="InventorySystemModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductStock_Item">
+          <End Type="InventorySystemModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.ProductStock" Role="ProductStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductStock">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_Item">
+          <End Type="InventorySystemModel.Item" Role="Item" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.RawStock" Role="RawStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Item">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RawStock">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderDetails_Order">
+          <End Type="InventorySystemModel.Order" Role="Order" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.OrderDetail" Role="OrderDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderDetail">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductionDetail_Producer">
+          <End Type="InventorySystemModel.Producer" Role="Producer" Multiplicity="0..1" />
+          <End Type="InventorySystemModel.ProductionDetail" Role="ProductionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductionDetail">
+              <PropertyRef Name="ProducerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InventorySystemModelStoreContainer" CdmEntityContainer="InventorySystemEntities">
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="InventorySystemModel.Company">
+              <MappingFragment StoreEntitySet="Company">
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CurrentBalance" ColumnName="CurrentBalance" />
+                <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+                <ScalarProperty Name="AccountTitle" ColumnName="AccountTitle" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="InventorySystemModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportExpenses">
+            <EntityTypeMapping TypeName="InventorySystemModel.ImportExpense">
+              <MappingFragment StoreEntitySet="ImportExpense">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Expense" ColumnName="Expense" />
+                <ScalarProperty Name="ImportId" ColumnName="ImportId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportItems">
+            <EntityTypeMapping TypeName="InventorySystemModel.ImportItem">
+              <MappingFragment StoreEntitySet="ImportItem">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="ContainerId" ColumnName="ContainerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportItemDetails">
+            <EntityTypeMapping TypeName="InventorySystemModel.ImportItemDetail">
+              <MappingFragment StoreEntitySet="ImportItemDetails">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ImportId" ColumnName="ImportId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="InventorySystemModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="InventorySystemModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Delivered" ColumnName="Delivered" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDetails">
+            <EntityTypeMapping TypeName="InventorySystemModel.OrderDetail">
+              <MappingFragment StoreEntitySet="OrderDetails">
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producers">
+            <EntityTypeMapping TypeName="InventorySystemModel.Producer">
+              <MappingFragment StoreEntitySet="Producer">
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Producer1" ColumnName="Producer" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductionDetails">
+            <EntityTypeMapping TypeName="InventorySystemModel.ProductionDetail">
+              <MappingFragment StoreEntitySet="ProductionDetail">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProducerId" ColumnName="ProducerId" />
+                <ScalarProperty Name="ImportId" ColumnName="ImportId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductStocks">
+            <EntityTypeMapping TypeName="InventorySystemModel.ProductStock">
+              <MappingFragment StoreEntitySet="ProductStock">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RawStocks">
+            <EntityTypeMapping TypeName="InventorySystemModel.RawStock">
+              <MappingFragment StoreEntitySet="RawStock">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="InventorySystemModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Contact2" ColumnName="Contact2" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
