@@ -90,6 +90,9 @@ namespace InventorySystem
                 _context.Companies.Local.ToBindingList();
             this.itemBindingSource.DataSource =
                 _context.Items.Local.ToBindingList();
+            
+
+            this.itemDataGridView.DataSource = this.itemBindingSource;
         }
 
         private void BtnAddCompany_Click(object sender, EventArgs e)
@@ -123,6 +126,20 @@ namespace InventorySystem
         {
             
             _context.SaveChanges();
+        }
+
+        private void BtnAddCustomer_Click(object sender, EventArgs e)
+        {
+            AddCustomerForm forms = AddCustomerForm.GetInstance();
+            var dialogResult = forms.ShowDialog();
+            {
+                var isDialogResultOK = dialogResult == DialogResult.OK;
+                if (isDialogResultOK)
+                {
+
+                    this.companyDataGridView.Refresh();
+                }
+            }
         }
 
 
