@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Entity;
 using Telerik.WinControls;
-using Telerik.WinControls.UI;
+using System.Data.Entity;
 
-namespace InventorySystem
+namespace InventorySystem.AddEntitiesForms
 {
-    public partial class AddCustomerForm : Telerik.WinControls.UI.RadForm
+    public partial class AddProducerForm : Telerik.WinControls.UI.RadForm
     {
-        private static AddCustomerForm form;
         InventorySystemEntities _context;
-        private AddCustomerForm()
+        private static AddProducerForm form;
+        private AddProducerForm()
         {
             InitializeComponent();
-            
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -31,29 +28,30 @@ namespace InventorySystem
             this.companyBindingSource.DataSource = _context.Companies.Local.ToBindingList();
         }
 
-        public static AddCustomerForm GetInstance()
+        public static AddProducerForm GetInstance()
         {
             if (form != null)
             {
                 return form;
             }
-            form = new AddCustomerForm();
+            form = new AddProducerForm();
             return form;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer { 
-                Name = this.TextBoxName.Text,
+            Producer producer = new Producer
+            {
+                Producer1 = this.TextBoxName.Text,
                 CompanyId = int.Parse(this.TextBoxCompanyName.Items[0].Value.ToString()),
                 Contact = this.TextBoxContact.Text,
                 Contact2 = this.TextBoxContact2.Text,
             };
-            _context.Customers.Add(customer);
+            _context.Producers.Add(producer);
             _context.SaveChanges();
             this.DialogResult = DialogResult.OK;
-
+            RadMessageBox.SetThemeName(this.telerikMetroBlueTheme1.ThemeName.ToString());
+            RadMessageBox.Show("Saved Successfully!", "Success");
         }
-        
     }
 }

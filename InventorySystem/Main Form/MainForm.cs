@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using Telerik.WinControls;
 using Telerik.WinControls.UI;
+using InventorySystem.AddEntitiesForms;
 
 namespace InventorySystem
 {
@@ -20,15 +21,12 @@ namespace InventorySystem
         private MainForm()
         {
             InitializeComponent();
-
-            this.customerDataGridView.CellEditorInitialized += customerDataGridView_CellEditorInitialized;
-            this.customerDataGridView.EditorRequired += customerDataGridView_EditorRequired;
         }
 
         void customerDataGridView_EditorRequired(object sender, Telerik.WinControls.UI.EditorRequiredEventArgs e)
         {
-            
-            if (this.customerDataGridView.CurrentColumn.Name == "CompanyName")
+
+            if (this.customerCompanyChildDataGridView.CurrentColumn.Name == "CompanyName")
             {
                 e.Editor = new MyAutoCompleteEditor();
             }
@@ -36,17 +34,17 @@ namespace InventorySystem
 
         void customerDataGridView_CellEditorInitialized(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            if (this.customerDataGridView.CurrentRow.Cells[2].Value != null)
+            if (this.customerCompanyChildDataGridView.CurrentRow.Cells[2].Value != null)
             {
                 if (e.ActiveEditor is MyAutoCompleteEditor)
                 {
-                        MyAutoCompleteEditor editor = (MyAutoCompleteEditor)e.ActiveEditor;
-                        RadAutoCompleteBoxElement element = (RadAutoCompleteBoxElement)editor.EditorElement;
-                        element.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    MyAutoCompleteEditor editor = (MyAutoCompleteEditor)e.ActiveEditor;
+                    RadAutoCompleteBoxElement element = (RadAutoCompleteBoxElement)editor.EditorElement;
+                    element.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
 
-                        element.AutoCompleteDataSource = _context.Companies.ToList();
-                        element.AutoCompleteDisplayMember = "CompanyName";
-                        element.AutoCompleteValueMember = "Id";
+                    element.AutoCompleteDataSource = _context.Companies.ToList();
+                    element.AutoCompleteDisplayMember = "CompanyName";
+                    element.AutoCompleteValueMember = "Id";
                 }
             }
         }
@@ -90,9 +88,6 @@ namespace InventorySystem
                 _context.Companies.Local.ToBindingList();
             this.itemBindingSource.DataSource =
                 _context.Items.Local.ToBindingList();
-            
-
-            this.itemDataGridView.DataSource = this.itemBindingSource;
         }
 
         private void BtnAddCompany_Click(object sender, EventArgs e)
@@ -103,17 +98,10 @@ namespace InventorySystem
                 var isDialogResultOK = dialogResult == DialogResult.OK;
                 if (isDialogResultOK)
                 {
-                    
+
                     this.companyDataGridView.Refresh();
                 }
             }
-        }
-
-        private void BtnSearchCompany_Click(object sender, EventArgs e)
-        {
-            this.companyBindingSource.DataSource =
-            _context.Companies.Local.Where(m => m.CompanyName.Contains(this.TextBoxSearchCompany.Text));
-
         }
 
         private void companyBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -124,7 +112,7 @@ namespace InventorySystem
 
         private void itemBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            
+
             _context.SaveChanges();
         }
 
@@ -140,6 +128,35 @@ namespace InventorySystem
                     this.companyDataGridView.Refresh();
                 }
             }
+        }
+
+        private void BtnAddSupplier_Click(object sender, EventArgs e)
+        {
+            InventorySystem.Main_Form.AddSupplierForm forms = InventorySystem.Main_Form.AddSupplierForm.GetInstance();
+            var dialogResult = forms.ShowDialog();
+            {
+                var isDialogResultOK = dialogResult == DialogResult.OK;
+                if (isDialogResultOK)
+                {
+
+                    this.companyDataGridView.Refresh();
+                }
+            }
+        }
+
+        private void BtnAddProducer_Click(object sender, EventArgs e)
+        {
+            AddProducerForm forms = AddProducerForm.GetInstance();
+            var dialogResult = forms.ShowDialog();
+            {
+                var isDialogResultOK = dialogResult == DialogResult.OK;
+                if (isDialogResultOK)
+                {
+
+                    this.companyDataGridView.Refresh();
+                }
+            }
+
         }
 
 
