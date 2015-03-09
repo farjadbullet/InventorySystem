@@ -132,7 +132,7 @@ namespace InventorySystem
 
         private void BtnAddSupplier_Click(object sender, EventArgs e)
         {
-            InventorySystem.Main_Form.AddSupplierForm forms = InventorySystem.Main_Form.AddSupplierForm.GetInstance();
+            AddSupplierForm forms = AddSupplierForm.GetInstance();
             var dialogResult = forms.ShowDialog();
             {
                 var isDialogResultOK = dialogResult == DialogResult.OK;

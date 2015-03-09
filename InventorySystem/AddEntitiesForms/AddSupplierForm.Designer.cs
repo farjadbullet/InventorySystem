@@ -1,4 +1,4 @@
-﻿namespace InventorySystem.Main_Form
+﻿namespace InventorySystem.AddEntitiesForms
 {
     partial class AddSupplierForm
     {
