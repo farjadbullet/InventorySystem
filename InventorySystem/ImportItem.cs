@@ -10,7 +10,8 @@
 namespace InventorySystem
 {
     using System;
-
+    using System.Collections.Generic;
+    
     public partial class ImportItem
     {
         public ImportItem()
@@ -21,7 +22,7 @@ namespace InventorySystem
         }
     
         public int Id { get; set; }
-        public Nullable<System.Guid> ContainerId { get; set; }
+        public string ContainerId { get; set; }
         public int SupplierId { get; set; }
         public string OrderDate { get; set; }
         public string ArrivalDate { get; set; }

@@ -10,7 +10,8 @@
 namespace InventorySystem
 {
     using System;
-
+    using System.Collections.Generic;
+    
     public partial class ImportExpense
     {
         public int Id { get; set; }

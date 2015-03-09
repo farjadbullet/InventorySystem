@@ -12,7 +12,8 @@
     <AssemblyName>InventorySystem</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Bullet\Desktop\InventorySystem\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ProductName>Inventory Management System</ProductName>
+    <PublisherName>Syed Farjad Zia Zaidi</PublisherName>
+    <SuiteName>Sage 5Tech</SuiteName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -46,6 +52,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1697C7E25AD275FF872709F7C50368E345BF8121</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>InventorySystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
@@ -91,10 +112,6 @@
       <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RadChart.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.RadDock, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RadDock.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Telerik.WinControls.RadMarkupEditor, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RadMarkupEditor.dll</HintPath>
       <Private>True</Private>
@@ -103,24 +120,14 @@
       <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.RichTextBox.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Scheduler, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Scheduler.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Telerik.WinControls.SpellChecker, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.SpellChecker.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.HighContrastBlack, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.HighContrastBlack.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
     <Reference Include="Telerik.WinControls.Themes.TelerikMetroBlue, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.Themes.TelerikMetroBlue.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
     <Reference Include="Telerik.WinControls.UI, Version=2013.1.220.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>..\lib\RCWF\2013.1.220.40\Telerik.WinControls.UI.dll</HintPath>
       <Private>True</Private>
@@ -146,6 +153,12 @@
     </Compile>
     <Compile Include="AddEntitiesForms\AddCustomerForm.Designer.cs">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEntitiesForms\AddImportDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEntitiesForms\AddImportDetails.Designer.cs">
+      <DependentUpon>AddImportDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="AddEntitiesForms\AddProducerForm.cs">
       <SubType>Form</SubType>
@@ -241,6 +254,9 @@
     <EmbeddedResource Include="AddEntitiesForms\AddCustomerForm.resx">
       <DependentUpon>AddCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddEntitiesForms\AddImportDetails.resx">
+      <DependentUpon>AddImportDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEntitiesForms\AddProducerForm.resx">
       <DependentUpon>AddProducerForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,6 +289,7 @@
     <None Include="InventoryDb.edmx.diagram">
       <DependentUpon>InventoryDb.edmx</DependentUpon>
     </None>
+    <None Include="InventorySystem_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Company.datasource" />
     <None Include="Properties\DataSources\Customer.datasource" />
@@ -325,6 +342,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>InventorySystem.mdf</DependentUpon>
     </Content>
+    <Content Include="logo.ico" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>

@@ -28,53 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddImportForm));
-            this.TextBoxContact2 = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.TextBoxCompanyName = new Telerik.WinControls.UI.RadAutoCompleteBox();
+            this.TextBoxStatus = new Telerik.WinControls.UI.RadTextBoxControl();
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.TextBoxContact = new Telerik.WinControls.UI.RadTextBoxControl();
-            this.TextBoxName = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.TextBoxArrivalDate = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.TextBoxContainer = new Telerik.WinControls.UI.RadTextBoxControl();
             this.BtnAddOrderDetails = new Telerik.WinControls.UI.RadButton();
             this.BtnAddProductionDetails = new Telerik.WinControls.UI.RadButton();
             this.BtnAddItemExpenses = new Telerik.WinControls.UI.RadButton();
             this.BtnSave = new Telerik.WinControls.UI.RadButton();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxContact2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxCompanyName)).BeginInit();
+            this.telerikMetroBlueTheme1 = new Telerik.WinControls.Themes.TelerikMetroBlueTheme();
+            this.TextBoxOrderDate = new Telerik.WinControls.UI.RadTextBoxControl();
+            this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
+            this.TextBoxSupplier = new Telerik.WinControls.UI.RadAutoCompleteBox();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxContact)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxArrivalDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxContainer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAddOrderDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAddProductionDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAddItemExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxOrderDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // TextBoxContact2
+            // TextBoxStatus
             // 
-            this.TextBoxContact2.BackColor = System.Drawing.Color.DimGray;
-            this.TextBoxContact2.Location = new System.Drawing.Point(12, 256);
-            this.TextBoxContact2.Name = "TextBoxContact2";
-            this.TextBoxContact2.Size = new System.Drawing.Size(140, 20);
-            this.TextBoxContact2.TabIndex = 17;
-            this.TextBoxContact2.ThemeName = "TelerikMetroBlue";
-            // 
-            // TextBoxCompanyName
-            // 
-            this.TextBoxCompanyName.AutoCompleteDisplayMember = "CompanyName";
-            this.TextBoxCompanyName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.TextBoxCompanyName.AutoCompleteValueMember = "Id";
-            this.TextBoxCompanyName.Location = new System.Drawing.Point(12, 160);
-            this.TextBoxCompanyName.Name = "TextBoxCompanyName";
-            this.TextBoxCompanyName.Size = new System.Drawing.Size(140, 20);
-            this.TextBoxCompanyName.TabIndex = 16;
-            this.TextBoxCompanyName.ThemeName = "TelerikMetroBlue";
+            this.TextBoxStatus.BackColor = System.Drawing.Color.DimGray;
+            this.TextBoxStatus.Location = new System.Drawing.Point(12, 256);
+            this.TextBoxStatus.Name = "TextBoxStatus";
+            this.TextBoxStatus.Size = new System.Drawing.Size(140, 20);
+            this.TextBoxStatus.TabIndex = 17;
+            this.TextBoxStatus.ThemeName = "TelerikMetroBlue";
             // 
             // radLabel3
             // 
@@ -112,27 +109,27 @@
             this.radLabel1.Text = "Container Id";
             this.radLabel1.ThemeName = "TelerikMetroBlue";
             // 
-            // TextBoxContact
+            // TextBoxArrivalDate
             // 
-            this.TextBoxContact.BackColor = System.Drawing.Color.DimGray;
-            this.TextBoxContact.Location = new System.Drawing.Point(12, 208);
-            this.TextBoxContact.Name = "TextBoxContact";
-            this.TextBoxContact.Size = new System.Drawing.Size(140, 20);
-            this.TextBoxContact.TabIndex = 11;
-            this.TextBoxContact.ThemeName = "TelerikMetroBlue";
+            this.TextBoxArrivalDate.BackColor = System.Drawing.Color.DimGray;
+            this.TextBoxArrivalDate.Location = new System.Drawing.Point(12, 208);
+            this.TextBoxArrivalDate.Name = "TextBoxArrivalDate";
+            this.TextBoxArrivalDate.Size = new System.Drawing.Size(140, 20);
+            this.TextBoxArrivalDate.TabIndex = 11;
+            this.TextBoxArrivalDate.ThemeName = "TelerikMetroBlue";
             // 
-            // TextBoxName
+            // TextBoxContainer
             // 
-            this.TextBoxName.BackColor = System.Drawing.Color.DarkRed;
-            this.TextBoxName.Location = new System.Drawing.Point(12, 112);
-            this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.Size = new System.Drawing.Size(140, 20);
-            this.TextBoxName.TabIndex = 10;
-            this.TextBoxName.ThemeName = "TelerikMetroBlue";
+            this.TextBoxContainer.BackColor = System.Drawing.Color.DarkRed;
+            this.TextBoxContainer.Location = new System.Drawing.Point(12, 112);
+            this.TextBoxContainer.Name = "TextBoxContainer";
+            this.TextBoxContainer.Size = new System.Drawing.Size(140, 20);
+            this.TextBoxContainer.TabIndex = 10;
+            this.TextBoxContainer.ThemeName = "TelerikMetroBlue";
             // 
             // BtnAddOrderDetails
             // 
-            this.BtnAddOrderDetails.Location = new System.Drawing.Point(12, 312);
+            this.BtnAddOrderDetails.Location = new System.Drawing.Point(12, 366);
             this.BtnAddOrderDetails.Name = "BtnAddOrderDetails";
             this.BtnAddOrderDetails.Size = new System.Drawing.Size(140, 24);
             this.BtnAddOrderDetails.TabIndex = 18;
@@ -142,7 +139,7 @@
             // 
             // BtnAddProductionDetails
             // 
-            this.BtnAddProductionDetails.Location = new System.Drawing.Point(12, 342);
+            this.BtnAddProductionDetails.Location = new System.Drawing.Point(12, 396);
             this.BtnAddProductionDetails.Name = "BtnAddProductionDetails";
             this.BtnAddProductionDetails.Size = new System.Drawing.Size(140, 24);
             this.BtnAddProductionDetails.TabIndex = 19;
@@ -152,7 +149,7 @@
             // 
             // BtnAddItemExpenses
             // 
-            this.BtnAddItemExpenses.Location = new System.Drawing.Point(12, 372);
+            this.BtnAddItemExpenses.Location = new System.Drawing.Point(12, 426);
             this.BtnAddItemExpenses.Name = "BtnAddItemExpenses";
             this.BtnAddItemExpenses.Size = new System.Drawing.Size(140, 24);
             this.BtnAddItemExpenses.TabIndex = 20;
@@ -162,7 +159,7 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(12, 282);
+            this.BtnSave.Location = new System.Drawing.Point(12, 336);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(140, 24);
             this.BtnSave.TabIndex = 21;
@@ -170,25 +167,61 @@
             this.BtnSave.ThemeName = "TelerikMetroBlue";
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
+            // TextBoxOrderDate
+            // 
+            this.TextBoxOrderDate.BackColor = System.Drawing.Color.DimGray;
+            this.TextBoxOrderDate.Location = new System.Drawing.Point(12, 160);
+            this.TextBoxOrderDate.Name = "TextBoxOrderDate";
+            this.TextBoxOrderDate.Size = new System.Drawing.Size(140, 20);
+            this.TextBoxOrderDate.TabIndex = 22;
+            this.TextBoxOrderDate.ThemeName = "TelerikMetroBlue";
+            // 
+            // radLabel5
+            // 
+            this.radLabel5.Location = new System.Drawing.Point(12, 282);
+            this.radLabel5.Name = "radLabel5";
+            this.radLabel5.Size = new System.Drawing.Size(48, 16);
+            this.radLabel5.TabIndex = 23;
+            this.radLabel5.Text = "Supplier";
+            this.radLabel5.ThemeName = "TelerikMetroBlue";
+            // 
+            // TextBoxSupplier
+            // 
+            this.TextBoxSupplier.AutoCompleteDataSource = this.supplierBindingSource;
+            this.TextBoxSupplier.AutoCompleteDisplayMember = "SupplierName";
+            this.TextBoxSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TextBoxSupplier.AutoCompleteValueMember = "Id";
+            this.TextBoxSupplier.Location = new System.Drawing.Point(12, 304);
+            this.TextBoxSupplier.Name = "TextBoxSupplier";
+            this.TextBoxSupplier.Size = new System.Drawing.Size(140, 26);
+            this.TextBoxSupplier.TabIndex = 24;
+            this.TextBoxSupplier.ThemeName = "TelerikMetroBlue";
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(InventorySystem.Supplier);
+            // 
             // AddImportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InventorySystem.Properties.Resources.logo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(225, 422);
+            this.ClientSize = new System.Drawing.Size(225, 458);
+            this.Controls.Add(this.TextBoxSupplier);
+            this.Controls.Add(this.radLabel5);
+            this.Controls.Add(this.TextBoxOrderDate);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.BtnAddItemExpenses);
             this.Controls.Add(this.BtnAddProductionDetails);
             this.Controls.Add(this.BtnAddOrderDetails);
-            this.Controls.Add(this.TextBoxContact2);
-            this.Controls.Add(this.TextBoxCompanyName);
+            this.Controls.Add(this.TextBoxStatus);
             this.Controls.Add(this.radLabel3);
             this.Controls.Add(this.radLabel4);
             this.Controls.Add(this.radLabel2);
             this.Controls.Add(this.radLabel1);
-            this.Controls.Add(this.TextBoxContact);
-            this.Controls.Add(this.TextBoxName);
+            this.Controls.Add(this.TextBoxArrivalDate);
+            this.Controls.Add(this.TextBoxContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddImportForm";
             // 
@@ -198,18 +231,21 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddImportForm";
             this.ThemeName = "TelerikMetroBlue";
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxContact2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxCompanyName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxContact)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TextBoxName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxArrivalDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxContainer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAddOrderDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAddProductionDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnAddItemExpenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxOrderDate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TextBoxSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -218,17 +254,21 @@
 
         #endregion
 
-        private Telerik.WinControls.UI.RadTextBoxControl TextBoxContact2;
-        private Telerik.WinControls.UI.RadAutoCompleteBox TextBoxCompanyName;
+        private Telerik.WinControls.UI.RadTextBoxControl TextBoxStatus;
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadLabel radLabel4;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadTextBoxControl TextBoxContact;
-        private Telerik.WinControls.UI.RadTextBoxControl TextBoxName;
+        private Telerik.WinControls.UI.RadTextBoxControl TextBoxArrivalDate;
+        private Telerik.WinControls.UI.RadTextBoxControl TextBoxContainer;
         private Telerik.WinControls.UI.RadButton BtnAddOrderDetails;
         private Telerik.WinControls.UI.RadButton BtnAddProductionDetails;
         private Telerik.WinControls.UI.RadButton BtnAddItemExpenses;
         private Telerik.WinControls.UI.RadButton BtnSave;
+        private Telerik.WinControls.Themes.TelerikMetroBlueTheme telerikMetroBlueTheme1;
+        private Telerik.WinControls.UI.RadTextBoxControl TextBoxOrderDate;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadAutoCompleteBox TextBoxSupplier;
+        private System.Windows.Forms.BindingSource supplierBindingSource;
     }
 }
