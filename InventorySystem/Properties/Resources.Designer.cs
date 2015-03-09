@@ -61,6 +61,26 @@ namespace InventorySystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] InventorySystem {
+            get {
+                object obj = ResourceManager.GetObject("InventorySystem", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] InventorySystem_log {
+            get {
+                object obj = ResourceManager.GetObject("InventorySystem_log", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap login {

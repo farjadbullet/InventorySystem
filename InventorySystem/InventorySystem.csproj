@@ -323,6 +323,7 @@
     </Content>
     <Content Include="InventorySystem_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>InventorySystem.mdf</DependentUpon>
     </Content>
     <None Include="Resources\logo.png" />
   </ItemGroup>
