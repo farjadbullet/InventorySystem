@@ -106,13 +106,11 @@ namespace InventorySystem
 
         private void companyBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
             _context.SaveChanges();
         }
 
         private void itemBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-
             _context.SaveChanges();
         }
 
@@ -125,7 +123,8 @@ namespace InventorySystem
                 if (isDialogResultOK)
                 {
 
-                    this.companyDataGridView.Refresh();
+                    this.customerCompanyChildDataGridView.Refresh();
+                    this.customerCompanyParentDataGridView.Refresh();
                 }
             }
         }
@@ -139,7 +138,8 @@ namespace InventorySystem
                 if (isDialogResultOK)
                 {
 
-                    this.companyDataGridView.Refresh();
+                    this.supplierCompanyChildDataGridView.Refresh();
+                    this.supplierCompanyParentDataGridView.Refresh();
                 }
             }
         }
@@ -153,10 +153,24 @@ namespace InventorySystem
                 if (isDialogResultOK)
                 {
 
-                    this.companyDataGridView.Refresh();
+                    this.producerCompanyChildDataGridView.Refresh();
+                    this.producerCompanyParentDataGridView.Refresh();
                 }
             }
 
+        }
+
+        private void BtnAddImport_Click(object sender, EventArgs e)
+        {
+            AddImportForm forms = AddImportForm.GetInstance();
+            var dialogResult = forms.ShowDialog();
+            {
+                var isDialogResultOK = dialogResult == DialogResult.OK;
+                if (isDialogResultOK)
+                {
+
+                }
+            }
         }
 
 
