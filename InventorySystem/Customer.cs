@@ -11,22 +11,20 @@ namespace InventorySystem
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations.Schema;
-
+    
     public partial class Customer
     {
         public Customer()
         {
             this.Orders = new ObservableListSource<Order>();
         }
-
+    
         public int Id { get; set; }
         public string Name { get; set; }
         public Nullable<int> CompanyId { get; set; }
         public string Contact { get; set; }
         public string Contact2 { get; set; }
-        
-
+    
         public virtual Company Company { get; set; }
         public virtual ObservableListSource<Order> Orders { get; set; }
     }
