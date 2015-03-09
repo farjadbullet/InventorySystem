@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using InventorySystem.AddEntitiesForms;
+using System;
 using System.Data.Entity;
-using Telerik.WinControls;
+using System.Linq;
+using System.Windows.Forms;
 using Telerik.WinControls.UI;
-using InventorySystem.AddEntitiesForms;
 
 namespace InventorySystem
 {

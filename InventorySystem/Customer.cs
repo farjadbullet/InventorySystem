@@ -10,8 +10,7 @@
 namespace InventorySystem
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class Customer
     {
         public Customer()
